@@ -1,0 +1,106 @@
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/CopperplateCC.woff2') format('woff2');
+  font-family: 'CopperplateCC';
+  font-display: swap
+}
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/OPTICopperplate.woff2') format('woff2');
+  font-family: 'OPTICopperplate';
+  font-display: swap
+}
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Poppins-Bold.woff2') format('woff2');
+  font-family: 'Poppins-Bold';
+  font-display: swap
+}
+@font-face {
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/Poppins-Italic.woff2') format('woff2');
+  font-family: 'Poppins-Italic';
+  font-display: swap
+}
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/Poppins-Medium.woff2') format('woff2');
+  font-family: 'Poppins-Medium';
+  font-display: swap
+}
+@font-face {
+  font-style: italic;
+  font-weight: 500;
+  src: url('../fonts/Poppins-MediumItalic.woff2') format('woff2');
+  font-family: 'Poppins-MediumItalic';
+  font-display: swap
+}
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Poppins-Regular.woff2') format('woff2');
+  font-family: 'Poppins-Regular';
+  font-display: swap
+}
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Poppins-SemiBold.woff2') format('woff2');
+  font-family: 'Poppins-SemiBold';
+  font-display: swap
+}
+:root {
+  --copperplate-cc: 'CopperplateCC';
+  --opti-copperplate: 'OPTICopperplate';
+  --poppins-bold: 'Poppins-Bold';
+  --poppins-italic: 'Poppins-Italic';
+  --poppins-medium: 'Poppins-Medium';
+  --poppins-medium-italic: 'Poppins-MediumItalic';
+  --poppins-regular: 'Poppins-Regular';
+  --poppins-semi-bold: 'Poppins-SemiBold'
+}
+.CopperplateCC-400 {
+  font-family: var(--copperplate-cc);
+  font-weight: 400;
+  font-style: normal
+}
+.OPTICopperplate-400 {
+  font-family: var(--opti-copperplate);
+  font-weight: 400;
+  font-style: normal
+}
+.Poppins-Bold-700 {
+  font-family: var(--poppins-bold);
+  font-weight: 700;
+  font-style: normal
+}
+.Poppins-Italic-400-italic {
+  font-family: var(--poppins-italic);
+  font-weight: 400;
+  font-style: italic
+}
+.Poppins-Medium-500 {
+  font-family: var(--poppins-medium);
+  font-weight: 500;
+  font-style: normal
+}
+.Poppins-MediumItalic-500-italic {
+  font-family: var(--poppins-medium-italic);
+  font-weight: 500;
+  font-style: italic
+}
+.Poppins-Regular-400 {
+  font-family: var(--poppins-regular);
+  font-weight: 400;
+  font-style: normal
+}
+.Poppins-SemiBold-600 {
+  font-family: var(--poppins-semi-bold);
+  font-weight: 600;
+  font-style: normal
+}

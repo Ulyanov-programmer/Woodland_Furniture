@@ -1,0 +1,50 @@
+@layer thirdLevelState {
+  @media (max-width: 425px) {
+    [data-below-425*="t_center"] {
+      text-align: center
+    }
+    [data-below-425*="fz-18"] {
+      font-size: 18px
+    }
+    [data-below-425*="w_100per"] {
+      width: 100%
+    }
+  }
+  @media (max-width: 1024px) {
+    [data-below-1024*="content_paddings"] {
+      padding-inline: var(--content-inline-padding, 10vw)
+    }
+    [data-below-1024*="m_inline_auto"] {
+      margin-inline: auto
+    }
+    [data-below-1024*="t_center"] {
+      text-align: center
+    }
+  }
+  @media (max-width: 1440px) {
+    [data-below-1440*="h_50svh"] {
+      height: 50svh;
+      min-height: 300px
+    }
+    [data-below-1440*="hidden"] {
+      display: none
+    }
+  }
+  @media (min-width: 1440.02px) {
+    [data-on-1440*="hidden"] {
+      display: none
+    }
+  }
+  @media (max-width: 1240px) {
+    [data-below-1240*="pos_r"] {
+      position: relative
+    }
+    [data-below-1240*="contain_p"] {
+      position: relative
+    }
+  }
+  :hover[data-hover-focus*="t_underline"],
+  :focus-visible[data-hover-focus*="t_underline"] {
+    text-decoration: underline
+  }
+}

@@ -1,0 +1,362 @@
+@layer normalizing,
+firstLevel,
+secondLevel,
+thirdLevel,
+firstLevelState,
+secondLevelState,
+thirdLevelState;
+
+@layer normalizing {
+  :not(svg, table, caption, thead, tbody, tfoot, colgroup, tr, th, td, svg *) {
+    all: unset;
+    box-sizing: border-box
+  }
+  head,
+  script {
+    display: none
+  }
+  ::before,
+  ::after {
+    box-sizing: border-box
+  }
+  :active {
+    outline: none
+  }
+  :focus-visible {
+    outline: 2px solid white
+  }
+  nav,
+  footer,
+  header,
+  aside,
+  body,
+  div,
+  main,
+  section,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  p,
+  pre,
+  ul {
+    display: block
+  }
+  html,
+  body {
+    line-height: 1;
+    -webkit-text-size-adjust: auto;
+    -moz-text-size-adjust: auto;
+    text-size-adjust: auto
+  }
+  html {
+    /* colors, button / track */
+    scrollbar-color: blue orange;
+    /* size */
+    scrollbar-width: thin | auto
+  }
+  html ::-moz-selection {
+    color: #fff;
+    background-color: var(--gray-text)
+  }
+  html ::selection {
+    color: #fff;
+    background-color: var(--gray-text)
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth
+    }
+  }
+  a,
+  button {
+    cursor: pointer;
+    display: inline-block
+  }
+  a,
+  p,
+  span,
+  mark,
+  abbr,
+  q,
+  blockquote,
+  cite,
+  strong,
+  small {
+    text-wrap: pretty;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone
+  }
+  a {
+    display: inline-block
+  }
+  a:hover,
+  a:visited {
+    text-decoration: none
+  }
+  ul,
+  li {
+    list-style: none
+  }
+  img {
+    shape-margin: 0.75em;
+    max-width: 100%;
+    font-style: italic;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: cover
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  caption {
+    text-wrap: balance
+  }
+  :root {
+    --main-text-color: #fff;
+    --yellowed-text-color: #fffbef;
+    --black-text-color: #675c55;
+    --coffee-text-color: #f0e9d6;
+    --gray-text: #938c89;
+    --background: #fffbef;
+    --first-coffee: #fffbef;
+    --second-coffee: #ece5d3;
+    --third-coffee: #ba9e76;
+    --black-coffee: #342f2c;
+    --gray-color: #c7c0b2;
+    --header-height: 116px
+  }
+  @media (max-width: 426px) {
+    :root {
+      --header-height: 90px
+    }
+  }
+  html body {
+    font-family: var(--poppins-regular);
+    font-size: clamp(
+      12px,
+      calc(16 * 100vw / 1920),
+      16px
+    );
+    color: var(--main-text-color);
+    background: var(--background)
+  }
+  table-wrapper {
+    overflow-x: auto;
+    display: block;
+    max-width: 100%
+  }
+  table {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 700px
+  }
+  table caption {
+    background: inherit
+  }
+  table thead {
+    
+  }
+  table tbody {
+    
+  }
+  table tfoot {
+    
+  }
+  table tr th,
+  table tr td {
+    
+  }
+  table tr th {
+    
+  }
+  table tr td {
+    
+  }
+  form fieldset legend {
+    
+  }
+  form label {
+    cursor: pointer
+  }
+  form input::-moz-placeholder {
+    
+  }
+  form input::placeholder {
+    
+  }
+  form input:disabled {
+    
+  }
+  form input:invalid {
+    
+  }
+  form input:focus-visible {
+    outline: none
+  }
+  form input[type='password'] {
+    --caption-font: 'caption';
+    font-family: var(--caption-font)
+  }
+  form input[type='text']::-moz-placeholder {
+    
+  }
+  form input[type='text']::placeholder {
+    
+  }
+  form input[type='email']::-moz-placeholder {
+    
+  }
+  form input[type='email']::placeholder {
+    
+  }
+  form input[type='tel']::-moz-placeholder {
+    
+  }
+  form input[type='tel']::placeholder {
+    
+  }
+  form input[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield
+  }
+  form input[type='number']::-webkit-inner-spin-button,
+  form input[type='number']::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none
+  }
+  form input[type='radio'],
+  form input[type='checkbox'],
+  form input[type='file'] {
+    display: none
+  }
+  form input[type='radio'] + label svg,
+  form input[type='checkbox'] + label svg,
+  form input[type='file'] + label svg {
+    
+  }
+  form input[type='radio']:checked + label svg,
+  form input[type='checkbox']:checked + label svg,
+  form input[type='file']:checked + label svg {
+    
+  }
+  form input[type='checkbox'] {
+    
+  }
+  form input[type='radio'] {
+    
+  }
+  form input[type='file'] {
+    
+  }
+  select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff
+  }
+  select:focus-visible {
+    outline: none
+  }
+  textarea::-moz-placeholder {
+    
+  }
+  textarea::placeholder {
+    
+  }
+  textarea:focus-visible {
+    outline: none
+  }
+  button[type='submit'] {
+    
+  }
+  h1,
+  h2,
+  h3 {
+    text-transform: uppercase
+  }
+  h1 {
+    font-family: var(--copperplate-cc);
+    font-size: clamp(1.75rem, calc(60 * 100vw / 1920) + 0.1rem, 3.75rem);
+    font-weight: 700;
+    line-height: 1.3
+  }
+  h2 {
+    font-family: var(--copperplate-cc);
+    font-size: clamp(1.5rem, calc(40 * 100vw / 1920) + 0.1rem, 2.5rem);
+    font-weight: 700;
+    line-height: 1.3
+  }
+  h3 {
+    font-family: var(--poppins-semi-bold);
+    font-size: clamp(1.25rem, calc(24 * 100vw / 1920) + 0.1rem, 1.5rem)
+  }
+  h4 {
+    font-family: var(--poppins-bold);
+    font-size: clamp(1.125rem, calc(20 * 100vw / 1920) + 0.1rem, 1.25rem)
+  }
+  p {
+    line-height: 1.6
+  }
+  blockquote {
+    position: relative
+  }
+  blockquote::before {
+    content: url('../images/decor/quotes.svg');
+    position: absolute;
+    top: 1.5em;
+    left: 1.5em
+  }
+  q {
+    
+  }
+  cite {
+    
+  }
+  mark {
+    
+  }
+  s {
+    
+  }
+  figure figcaption {
+    
+  }
+  hr {
+    
+  }
+  small-subtitle {
+    display: inline-block;
+    font-size: clamp(0.875rem, calc(20 * 100vw / 1920) + 0.1rem, 1.25rem);
+    font-weight: 700;
+    line-height: 140%;
+    color: var(--third-coffee);
+    text-transform: uppercase;
+    letter-spacing: 0.3em
+  }
+  metadata-block {
+    display: inline-block;
+    letter-spacing: 0.1em
+  }
+  metadata-block mark {
+    font-weight: 600;
+    text-transform: uppercase
+  }
+  metadata-block mark::after {
+    content: ' | '
+  }
+  inline-container {
+    container-type: inline-size;
+    display: block
+  }
+}

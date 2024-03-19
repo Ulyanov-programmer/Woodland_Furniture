@@ -1,0 +1,690 @@
+@layer firstLevel {
+  #hero h1 {
+    min-height: 4em
+  }
+  @media (max-width: 1440px) {
+    #hero {
+      height: calc(100vh - var(--header-height));
+      min-height: 500px
+    }
+  }
+  .BlockWithTwoColumns {
+    display: grid;
+    grid-template: 'left right' auto/1.2fr 0.8fr;
+    gap: clamp(40px, calc(90 * 100vw / 1920), 90px)
+  }
+  .BlockWithTwoColumns first-block {
+    grid-area: left
+  }
+  .BlockWithTwoColumns second-block {
+    grid-area: right
+  }
+  .BlockWithTwoColumns._reverse {
+    grid-template: 'right left' auto/1fr 1fr
+  }
+  .Header {
+    position: relative;
+    height: var(--header-height);
+    background: var(--third-coffee)
+  }
+  .Footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr minmax(350px, 0.5fr);
+    background: var(--black-coffee)
+  }
+  @media (min-width: 1024.02px) and (max-width: 1440px) {
+    .Footer {
+      grid-template: 'left right-top' auto 'bottom bottom' auto/1fr 1.8fr
+    }
+    .Footer ._left_area {
+      grid-area: left
+    }
+    .Footer ._right_top_area {
+      grid-area: right-top
+    }
+    .Footer ._bottom_area {
+      grid-area: bottom
+    }
+  }
+  @media (max-width: 1024px) {
+    .Footer {
+      grid-auto-columns: 1fr;
+      grid-template: none;
+      grid-template-rows: auto auto auto;
+      gap: 100px
+    }
+  }
+  main {
+    
+  }
+  emerge-menu {
+    position: relative;
+    display: inline-block;
+    width: -moz-fit-content;
+    width: fit-content
+  }
+  emerge-menu > button {
+    
+  }
+  emerge-menu > dialog {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    display: block;
+    width: -moz-max-content;
+    width: max-content;
+    background: white;
+    transition: all 0.2s ease
+  }
+  emerge-menu > dialog:not([open]) {
+    pointer-events: none;
+    opacity: 0
+  }
+  emerge-menu > dialog.toLeft {
+    right: 0
+  }
+  emerge-menu > dialog.toRight {
+    left: 0
+  }
+  emerge-menu > dialog.toCenter {
+    left: 50%;
+    translate: -50% 0
+  }
+  /* ? Example of usage. Don't forget to connect the dialogs scripts.
+    <spoiler-wrapper>
+      <button type='button'
+              data-toggle-dialog-id='spoiler'>
+        Open the spoiler
+      </button>
+
+      <c-content>
+        <dialog id='spoiler'>
+          content
+        </dialog>
+      </c-content>
+    </spoiler-wrapper>
+    */
+  spoiler-wrapper > c-content {
+    display: grid;
+    /* You can "ajar" a content element by setting a value between 0 and 1 fr. */
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease
+  }
+  spoiler-wrapper > c-content dialog {
+    overflow: hidden;
+    opacity: 1
+  }
+  spoiler-wrapper > c-content dialog:not([open]) {
+    pointer-events: none
+  }
+  spoiler-wrapper > c-content dialog[open] {
+    pointer-events: all
+  }
+  spoiler-wrapper > button[aria-expanded='true'] ~ .content {
+    grid-template-rows: 1fr
+  }
+  .NavMenu {
+    --links-inline-padding: clamp(20px, calc(37 * 100vw / 1920), 37px);
+    height: 100%
+  }
+  .NavMenu ul {
+    height: 100%
+  }
+  .NavMenu ul li a:hover,
+  .NavMenu ul li a:focus,
+  .NavMenu ul li button:hover,
+  .NavMenu ul li button:focus {
+    
+  }
+  @media (min-width: 1440.02px) {
+    .NavMenu ul {
+      margin-inline: calc(-1 * var(--links-inline-padding))
+    }
+  }
+  @media (--burger-menu-is-hidden) {
+    button[data-open-dialog-id='burger-menu'] {
+      display: none
+    }
+  }
+  /*
+    ? This is the basic properties and animations of the burger button.
+    If you find that a part of the <rect> extends beyond the boundaries of the <svg>, try to make the <svg> a square (width and height must be equal).
+  */
+  button.AnimatedSvgBurger svg > rect {
+    transform-origin: center;
+    transform-box: fill-box;
+    transition: all 0.3s ease
+  }
+  button.AnimatedSvgBurger svg > rect:nth-child(1) {
+    width: 100%
+  }
+  button.AnimatedSvgBurger svg > rect:nth-child(2) {
+    width: 100%
+  }
+  button.AnimatedSvgBurger svg > rect:nth-child(3) {
+    width: 100%
+  }
+  button.AnimatedSvgBurger[aria-expanded='true'] .rectTop {
+    rotate: 45deg;
+    x: 0%;
+    y: 50%
+  }
+  button.AnimatedSvgBurger[aria-expanded='true'] .rectCenter {
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0
+  }
+  button.AnimatedSvgBurger[aria-expanded='true'] .rectBottom {
+    rotate: -45deg;
+    x: 0;
+    y: 50%
+  }
+  .NavLink {
+    display: inline-block;
+    padding: 15px var(--links-inline-padding);
+    font-family: var(--copperplate-cc);
+    font-size: clamp(1.125rem, calc(22 * 100vw / 1920) + 0.1rem, 1.375rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s ease
+  }
+  .NavLink:hover,
+  .NavLink:focus-visible {
+    background: #d3b387
+  }
+  .Input {
+    font-size: 20px;
+    background: var(--black-coffe)
+  }
+  .Input::-moz-placeholder {
+    font-family: var(--poppins-italic);
+    opacity: 0.5
+  }
+  .Input::placeholder {
+    font-family: var(--poppins-italic);
+    opacity: 0.5
+  }
+  .Button {
+    padding: 15px 40px;
+    font-family: var(--opti-copperplate);
+    text-transform: uppercase;
+    transition: all 0.2s ease
+  }
+  .OrangeHr {
+    width: clamp(3em, 8em, 8em);
+    height: 5px;
+    background: var(--third-coffee)
+  }
+  .OrangeHr._small {
+    width: 54px
+  }
+  .OrangeHr._vertical {
+    width: 5px;
+    height: 100%
+  }
+  .OrangeHr._fromRight {
+    position: absolute;
+    top: 0;
+    right: 0
+  }
+  @media (min-width: 1024.02px) {
+    .OrangeHr._big-line-toleft {
+      z-index: 1;
+      translate: -50%;
+      width: 30em
+    }
+  }
+  .BigRef {
+    display: grid;
+    gap: 10px;
+    place-content: center center;
+    place-items: center center;
+    padding: clamp(20px, calc(75 * 100vw / 1920), 75px);
+    color: var(--black-coffee);
+    background: var(--second-coffee);
+    border: 1px solid var(--second-coffee);
+    transition: all 0.2s ease
+  }
+  .BigRef:hover,
+  .BigRef:focus-visible {
+    color: var(--coffee-text-color);
+    background: var(--third-coffee)
+  }
+  .BigRef:hover path,
+  .BigRef:focus-visible path {
+    fill: var(--first-coffee)
+  }
+  .RowWithBigRefs {
+    display: grid
+  }
+  @container (width >= 1024px) {
+    .RowWithBigRefs {
+      grid-template-columns: repeat(4, 1fr)
+    }
+    .RowWithBigRefs > *:not(:last-child) {
+      border-right: 2px solid var(--gray-color)
+    }
+  }
+  @container (width < 1024px) {
+    .RowWithBigRefs {
+      grid-template-columns: repeat(2, 1fr)
+    }
+    .RowWithBigRefs > * {
+      border: 1px solid var(--gray-color)
+    }
+  }
+  burger-menu {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr
+  }
+  .Logo {
+    /* Не позволяет сжиматься в flex-контейнере. */
+    flex: 0 0 auto
+  }
+  .Advantage {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 1em 25px;
+    padding: clamp(25px, calc(50 * 100vw / 1920), 50px) 0
+  }
+  .Advantage img {
+    grid-row: span 2
+  }
+  .GridWithThreeBlocks {
+    display: grid;
+    grid-template: 'left top-right' auto 'left bottom-right' auto/0.9fr 1.1fr;
+    align-items: start
+  }
+  .GridWithThreeBlocks > *:not(._left) {
+    display: grid;
+    align-content: center;
+    height: 100%;
+    padding: clamp(30px, calc(100 * 100vw / 1920), 100px);
+    padding-right: 0
+  }
+  .GridWithThreeBlocks ._left {
+    grid-area: left;
+    height: 100%
+  }
+  .GridWithThreeBlocks ._top-right {
+    grid-area: top-right
+  }
+  .GridWithThreeBlocks ._bottom-right {
+    grid-area: bottom-right
+  }
+  @media (max-width: 1150px) {
+    .GridWithThreeBlocks {
+      grid-template-columns: 0.5fr 1.5fr
+    }
+  }
+  @media (max-width: 768px) {
+    .GridWithThreeBlocks {
+      grid-template: 'top-right' auto 'left' 300px 'bottom-right' auto/1fr
+    }
+  }
+  .Article {
+    display: grid;
+    gap: 10px
+  }
+  .Article a {
+    font-size: clamp(18px, calc(26 * 100vw / 1920), 26px);
+    font-weight: 600;
+    line-height: 158%
+  }
+  .BigArticle {
+    contain: paint;
+    display: grid
+  }
+  .BigArticle img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover
+  }
+  .BigArticle a {
+    font-size: clamp(20px, calc(30 * 100vw / 1920), 30px);
+    font-weight: 500;
+    line-height: 137%
+  }
+  .BigArticle big-article-main {
+    padding: clamp(15px, calc(35 * 100vw / 1920), 35px)
+  }
+  article-column {
+    --gap-between-blocks: clamp(25px, calc(40 * 100vw / 1920), 40px);
+    display: inline-grid;
+    gap: var(--gap-between-blocks);
+    align-content: start
+  }
+  article-column > :not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 3px;
+    /* Необходимо делить, поскольку line-height текста сверху создаёт отступ с низу. */
+    margin-top: calc(var(--gap-between-blocks) / 3);
+    line-height: 0;
+    background: var(--third-coffee)
+  }
+  .BigAdvantagesBlock {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: clamp(40px, calc(120 * 100vw / 1920), 120px)
+  }
+  .BigAdvantagesBlock top-block {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px 50px;
+    align-items: center;
+    justify-content: space-between
+  }
+  .BigAdvantagesBlock bottom-block {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: clamp(35px, calc(96 * 100vw / 1920), 96px) clamp(45px, calc(65 * 100vw / 1920), 65px)
+  }
+  .BigAdvantagesBlock bottom-block advantages-block-big {
+    grid-row: span 2;
+    align-self: start
+  }
+  @media (min-width: 1024.02px) and (max-width: 1440px) {
+    .BigAdvantagesBlock bottom-block advantages-block-big {
+      grid-column: span 2;
+      grid-row: span 1
+    }
+  }
+  @media (max-width: 1440px) {
+    .BigAdvantagesBlock bottom-block {
+      grid-template-columns: 1fr 1fr
+    }
+  }
+  @media (max-width: 1024px) {
+    .BigAdvantagesBlock bottom-block {
+      grid-template-columns: 1fr;
+      width: max(50vw, 400px);
+      margin: auto
+    }
+  }
+  @media (max-width: 600px) {
+    .BigAdvantagesBlock bottom-block {
+      width: auto;
+      margin: unset
+    }
+  }
+  advantages-block-big {
+    display: grid;
+    gap: clamp(15px, calc(30 * 100vw / 1920), 30px)
+  }
+  advantages-block-big mark {
+    --decor-square-margin: 0.3em;
+    position: relative;
+    margin-left: var(--decor-square-margin);
+    font-family: var(--copperplate-cc);
+    font-size: clamp(80px, calc(126 * 100vw / 1920), 126px);
+    font-weight: 700
+  }
+  advantages-block-big mark::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -15%;
+    left: calc(var(--decor-square-margin) * -1);
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    background: var(--third-coffee)
+  }
+  advantages-block-big p {
+    font-size: clamp(24px, calc(28 * 100vw / 1920), 28px);
+    font-weight: 600;
+    line-height: 1.3
+  }
+  advantages-block {
+    display: grid;
+    grid-template: 'decor title' auto 'decor text' auto/90px 1fr;
+    gap: 10px 40px
+  }
+  advantages-block image-block {
+    position: relative;
+    grid-area: decor;
+    align-self: start
+  }
+  advantages-block image-block::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--third-coffee)
+  }
+  advantages-block image-block img {
+    translate: -30% 30%
+  }
+  advantages-block mark {
+    grid-area: title;
+    font-size: clamp(18px, calc(28 * 100vw / 1920), 28px);
+    font-weight: 600;
+    line-height: 1.3
+  }
+  advantages-block p {
+    grid-area: text
+  }
+  @media (max-width: 426px) {
+    advantages-block {
+      gap: 20px
+    }
+    advantages-block image-block {
+      text-align: center
+    }
+    advantages-block image-block img {
+      translate: 0% 30%
+    }
+  }
+  .TitleBlockWithLeftHr {
+    display: grid;
+    grid-template: 'hr itemOne' auto 'hr itemTwo' auto/auto 1fr;
+    gap: 15px 4em
+  }
+  .TitleBlockWithLeftHr hr {
+    grid-area: hr
+  }
+  .TitleBlockWithLeftHr :nth-child(1) {
+    grid-area: itemOne
+  }
+  .TitleBlockWithLeftHr :nth-child(2) {
+    grid-area: itemTwo
+  }
+  .ProductArticle {
+    container-type: inline-size;
+    display: grid;
+    gap: 35px;
+    padding: 30px;
+    background: #fff
+  }
+  .ProductArticle a {
+    contain: paint;
+    text-align: center
+  }
+  .ProductArticle a img {
+    aspect-ratio: 1/1;
+    width: 318px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    transition: scale 0.2s ease
+  }
+  .ProductArticle a:hover img,
+  .ProductArticle a:focus-visible img {
+    scale: 1.2
+  }
+  .ProductArticle product-main {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 10px
+  }
+  @container (width <= 250px) {
+    .ProductArticle product-main {
+      grid-template-columns: 1fr
+    }
+  }
+  .ProductArticle product-main mark {
+    font-size: 1.5rem;
+    font-weight: 600
+  }
+  .ProductArticle product-main price-block {
+    font-size: clamp(
+          1.25rem,
+          calc(30 * 100vw / 1920) + 0.1rem,
+          1.875rem
+        );
+    font-weight: 600;
+    font-style: italic;
+    color: var(--third-coffee)
+  }
+  @container (width >= 250px) {
+    .ProductArticle product-main price-block {
+      justify-self: end
+    }
+  }
+  .ProductArticle product-main small {
+    font-weight: 600;
+    color: #a7a19e
+  }
+  .ProductArticle button {
+    margin-top: 20px;
+    text-align: center
+  }
+  products-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px
+  }
+  .CustomersBlock {
+    position: relative;
+    container-type: inline-size;
+    display: grid;
+    grid-template: 'preview title' auto 'preview photo' 1fr 'preview photo' 1fr 'preview blockquote' auto 'buttons blockquote' 150px/minmax(0, 1fr) minmax(0, 1fr);
+    gap: 35px
+  }
+  .CustomersBlock > * {
+    display: block
+  }
+  .CustomersBlock title-block {
+    grid-area: title
+  }
+  .CustomersBlock customer-photo {
+    grid-area: photo
+  }
+  .CustomersBlock customer-photo swiper-slider {
+    height: 100%
+  }
+  .CustomersBlock customer-preview {
+    grid-area: preview
+  }
+  .CustomersBlock customer-preview swiper-slider {
+    height: 100%
+  }
+  .CustomersBlock #customers-blockquotes {
+    grid-area: blockquote;
+    width: 100%
+  }
+  .CustomersBlock #customers-blockquotes blockquote {
+    display: block
+  }
+  .CustomersBlock buttons-block {
+    display: flex;
+    grid-area: buttons;
+    gap: 15px;
+    place-self: end end;
+    align-items: center
+  }
+  .CustomersBlock buttons-block > * {
+    transition: all 0.2s ease
+  }
+  .CustomersBlock buttons-block > *.inactive {
+    opacity: 0.4
+  }
+  .CustomersBlock buttons-block > *:hover:not(.inactive),
+  .CustomersBlock buttons-block > *:focus-visible:not(.inactive) {
+    scale: 1.1
+  }
+  @media (max-width: 1024px) {
+    .CustomersBlock {
+      grid-template: 'title title' auto 'preview photo' auto 'preview photo' auto 'preview buttons' auto 'blockquote blockquote' auto 'blockquote blockquote' auto/minmax(0, 1fr) minmax(0, 1fr)
+    }
+    .CustomersBlock title-block {
+      justify-items: center;
+      text-align: center
+    }
+  }
+  @media (max-width: 768px) {
+    .CustomersBlock {
+      grid-template: 'title title' auto 'photo photo' 100px 'photo photo' 100px 'buttons buttons' auto 'blockquote blockquote' auto 'blockquote blockquote' auto/1fr 1fr;
+      gap: 15px
+    }
+    .CustomersBlock customer-preview {
+      position: absolute;
+      overflow: hidden;
+      width: 1px;
+      height: 1px;
+      white-space: nowrap;
+      -webkit-clip-path: inset(50%);
+      clip-path: inset(50%)
+    }
+  }
+  @keyframes hero-bg-animation {
+    from {
+      translate: 0 -35%
+    }
+    to {
+      translate: 0 0%
+    }
+  }
+  @keyframes to-top-op0-1 {
+    from {
+      translate: 0 50px;
+      opacity: 0.2
+    }
+    to {
+      translate: 0 0;
+      opacity: 1
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    #second-block > * :is(svg, span) {
+      animation: to-top-op0-1 linear forwards;
+      animation-range: cover 0% cover 40%;
+      animation-timeline: view()
+    }
+    @media (max-width: 426px) {
+      #second-block > * :is(svg, span) {
+        animation-range: cover 0% cover 20%
+      }
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    #hero img {
+      scale: 1 1.35;
+      animation: hero-bg-animation linear forwards;
+      animation-range: cover 0%;
+      animation-timeline: view()
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .Advantages > article {
+      animation: to-top-op0-1 linear forwards;
+      animation-range: cover 0% cover 40%;
+      animation-timeline: view()
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .BigAdvantagesBlock advantages-block {
+      animation: to-top-op0-1 linear forwards;
+      animation-range: cover 0% cover 30%;
+      animation-timeline: view()
+    }
+  }
+}
