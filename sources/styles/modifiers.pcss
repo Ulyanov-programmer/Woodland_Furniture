@@ -1,0 +1,238 @@
+@import url('./_environment.pcss');
+
+@layer thirdLevel {
+  .pos {
+    &_r {
+      position: relative;
+    }
+
+    &_a {
+      position: absolute;
+    }
+  }
+
+  .p_right_60-120 {
+    padding-right: clamp(60px, pxToVw(120, $layoutWidth), 120px);
+  }
+  .p_right_20-40 {
+    padding-right: clamp(20px, pxToVw(40, $layoutWidth), 40px);
+  }
+
+  .p_40_100 {
+    padding: clamp(40px, pxToVw(100, $layoutWidth), 100px);
+  }
+
+  .thin,
+  .fw_100 {
+    font-weight: 100;
+  }
+
+  .extra_light,
+  .fw_200 {
+    font-weight: 200;
+  }
+
+  .light,
+  .fw_300 {
+    font-weight: 300;
+  }
+
+  .medium,
+  .fw_500 {
+    font-weight: 500;
+  }
+
+  .semi_bold,
+  .fw_600 {
+    font-weight: 600;
+  }
+
+  .bold,
+  .fw_700 {
+    font-weight: 700;
+  }
+
+  .extra_bold,
+  .fw_800 {
+    font-weight: 800;
+  }
+
+  .black,
+  .fw_900 {
+    font-weight: 900;
+  }
+
+  [class*='t'] {
+    &[class*='upper'] {
+      text-transform: uppercase;
+    }
+
+    &[class*='shadow'] {
+      text-shadow: 0 0 7px black;
+    }
+
+    &[class*='center'] {
+      text-align: center;
+    }
+
+    &[class*='gray'] {
+      color: var(--gray-text);
+    }
+  }
+
+  .smooth_hiding_sides {
+    /* Use this to create the effect of smoothly hiding the elements. */
+
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      rgb(0 0 0 / 100%) 10%,
+      rgb(0 0 0 / 100%) 90%,
+      transparent
+    );
+  }
+
+  .hide_scrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  :root {
+    --content-inline-padding: none;
+
+    @media (--is-large-layout) {
+      --content-inline-padding: 12vw;
+    }
+
+    @media (--is-layout-width) {
+      --content-inline-padding: 10vw;
+    }
+
+    @media (--is-tablet) {
+      --content-inline-padding: 8vw;
+    }
+
+    @media (--is-mobile) {
+      --content-inline-padding: 4vw;
+    }
+  }
+
+  .content_paddings {
+    /* Paddings for site content. */
+    padding-inline: var(--content-inline-padding, 10vw);
+
+    &_left {
+      padding-left: var(--content-inline-padding, 10vw);
+    }
+  }
+
+  .p_inline_15 {
+    padding-inline: 15px;
+  }
+
+  .p_inline_20_100 {
+    padding-inline: clamp(20px, pxToVw(100px, $layoutWidth), 100px);
+  }
+
+  .second_coffee_bg {
+    background: var(--second-coffee);
+  }
+
+  .third_coffee_bg {
+    background: var(--third-coffee);
+  }
+
+  .black_coffee {
+    &_bg {
+      background: var(--black-coffee);
+    }
+
+    &_color {
+      color: var(--black-coffee);
+    }
+  }
+
+  .yellowed_text_color {
+    color: var(--yellowed-text-color);
+  }
+
+  .copperplate_font {
+    font-family: var(--copperplate-cc);
+  }
+
+  .fz_22 {
+    font-size: 22px;
+  }
+
+  .fz_16-24 {
+    font-size: clamp(16px, pxToVw(24, $layoutWidth), 24px);
+  }
+
+  .b_right_white {
+    border-right: 1px solid #fffbef;
+  }
+
+  .b_bottom_coffee {
+    border-bottom: 1px solid var(--third-coffee);
+  }
+
+  .p_without_left {
+    padding: 25px 51px 25px 0;
+  }
+
+  .m_bottom_15 {
+    margin-bottom: 15px;
+  }
+
+  .m_top_20 {
+    margin-top: 20px;
+  }
+
+  .small_block_paddings {
+    padding-block: clamp(20px, pxToVw(70px, $layoutWidth), 70px);
+  }
+
+  .m_top_65 {
+    margin-top: 65px;
+  }
+
+  .b_top_white {
+    border-top: 1px solid #fffbef;
+  }
+
+  .h_100per {
+    height: 100%;
+  }
+
+  .translate_0_25per {
+    translate: 0 25%;
+  }
+
+  .contain_p {
+    contain: paint;
+  }
+
+  .p_block_40_150 {
+    padding-block: clamp(40px, pxToVw(150, $layoutWidth), 150px);
+  }
+
+  .w_max_35em {
+    max-width: 35em;
+  }
+
+  .cont_inline_size {
+    container-type: inline-size;
+  }
+
+  .object_position_top {
+    object-position: top;
+  }
+
+  .w_100per {
+    width: 100%;
+  }
+}

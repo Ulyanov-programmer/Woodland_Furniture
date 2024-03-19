@@ -1,0 +1,355 @@
+@import url("./_environment.pcss");
+
+@layer secondLevel {
+  .fullWidthWithPaddings {
+    display: grid;
+    grid-template-columns:
+      var(--content-inline-padding)
+      1fr
+      var(--content-inline-padding);
+    width: 100vw;
+  }
+
+  img {
+    &.cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.contain {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &.fill {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
+
+  .visuallyHidden {
+    position: absolute;
+
+    overflow: hidden;
+
+    width: 1px;
+    height: 1px;
+
+    white-space: nowrap;
+
+    clip-path: inset(50%);
+  }
+
+  .imageInText {
+    width: fit-content;
+
+    color: transparent;
+
+    background-image: url("");
+    background-clip: text;
+    background-size: cover;
+  }
+
+  .gradientInText {
+    width: fit-content;
+
+    color: transparent;
+
+    background-image: linear-gradient(90deg, red, blue);
+    background-clip: text;
+    background-size: cover;
+  }
+
+  .stickyOnTop {
+    position: sticky;
+    top: 0;
+  }
+
+  [class*="grid"] {
+    display: grid;
+
+    &[class*="centring"] {
+      place-content: center center;
+    }
+
+    &[class*="AISpaceBetween"] {
+      align-content: space-between;
+    }
+
+    &[class*="gap40"] {
+      gap: clamp(30px, pxToVw(40, $layoutWidth), 40px);
+    }
+
+    &[class*="gap10"] {
+      gap: 10px;
+    }
+
+    &[class*="gap20"] {
+      gap: 20px;
+    }
+
+    &[class*="gap40_120"] {
+      gap: clamp(40px, pxToVw(120, $layoutWidth), 120px);
+    }
+
+    &[class*="PCCenterCenter"] {
+      place-content: center center;
+    }
+
+    &[class*="PICenterCenter"] {
+      place-items: center center;
+    }
+
+    &[class*="thirdRows"] {
+      grid-template-columns: 1fr 1fr minmax(350px, 0.5fr);
+    }
+
+    &[class*="columns1frAuto"] {
+      grid-template-columns: 1fr auto;
+    }
+
+    &[class*="columns1.2fr_0.8fr"] {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    &[class*="JIStart"] {
+      justify-items: start;
+    }
+
+    &[class*="JICenter"] {
+      justify-items: center;
+    }
+
+    &[class*="inline"] {
+      display: inline-grid;
+    }
+
+    &[class*="wrap250_1fr"] {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    &[class*="AIStart"] {
+      align-items: start;
+    }
+
+    &[class*="ACBaseline"] {
+      align-content: baseline;
+    }
+
+    &[class*="JCSpaceBetween"] {
+      justify-content: space-between;
+    }
+  }
+
+  [class*="flex"] {
+    display: flex;
+
+    &[class*="rowNowrap"] {
+      flex-flow: row nowrap;
+    }
+
+    &[class*="rowWrap"] {
+      flex-flow: row wrap;
+    }
+
+    &[class*="gap15_40"] {
+      gap: clamp(15px, pxToVw(40, $layoutWidth), 40px);
+    }
+
+    &[class*="PCCenterSpaceBetween"] {
+      place-content: center space-between;
+    }
+
+    &[class*="AICenter"] {
+      align-items: center;
+    }
+  }
+
+  [class*="block"] {
+    &[class*="blackBg"] {
+      background: var(--black-coffee);
+      border: 1px solid var(--black-coffee);
+    }
+
+    &[class*="coffeeBg"] {
+      background: var(--second-coffee);
+      border: 1px solid var(--second-coffee);
+    }
+
+    &[class*="yellowCoffeeBg"] {
+      background: var(--third-coffee);
+      border: 1px solid var(--third-coffee);
+    }
+
+    &[class*="whiteCoffeeText"] {
+      color: var(--coffee-text-color);
+    }
+
+    &[class*="whiteText"] {
+      color: #fff;
+    }
+
+    &[class*="blackText"] {
+      color: var(--black-coffee);
+    }
+  }
+
+  .fullScreenBlockWithPaddings {
+    min-height: 100svh;
+    padding-block: clamp(40px, pxToVw(140, $layoutWidth), 140px);
+  }
+
+  .decorLetter {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    line-height: 2;
+
+    &::before {
+      padding-right: 0.4em;
+      font-weight: 700;
+      color: var(--third-coffee);
+      text-transform: uppercase;
+    }
+
+    &_address {
+      &::before {
+        content: "A :";
+      }
+    }
+
+    &_email {
+      &::before {
+        content: "E :";
+      }
+    }
+
+    &_phone {
+      &::before {
+        content: "P :";
+      }
+    }
+  }
+
+  .blockWithBackgroundImage {
+    position: relative;
+
+    img._background_image {
+      pointer-events: none;
+
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+
+      contain: paint;
+
+      &._full-height {
+        height: 100%;
+      }
+
+      &._35per-width {
+        max-width: 35%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  [class*="styledScrollbar"] {
+    /* colors, button / track */
+    scrollbar-color: var(--black-text-color) var(--first-coffee);
+
+    /* size */
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      /* size */
+      width: 10px;
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      /* track color */
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      /* button color */
+      background: var(--black-text-color);
+
+      /* padding size border color */
+      border: 0 solid blue;
+
+      /* rounding of the button */
+      border-radius: 15px;
+    }
+
+    &[class*="squareButton"] {
+      &::-webkit-scrollbar-thumb {
+        /* rounding of the button */
+        border-radius: 0;
+      }
+    }
+  }
+
+  .stickyLeft0 {
+    position: sticky;
+    left: 0;
+  }
+
+  .decorSquare {
+    &::before {
+      @mixin size 2em;
+
+      content: "";
+
+      position: absolute;
+      z-index: -1;
+      top: -0.2em;
+      left: -1em;
+
+      display: inline-block;
+
+      background: var(--third-coffee);
+    }
+
+    &._inBackground {
+      z-index: 2;
+    }
+
+    &._top0 {
+      &::before {
+        top: 0;
+      }
+    }
+  }
+
+  .blackBgWithDecor {
+    padding: clamp(20px, pxToVw(60, $layoutWidth), 60px);
+
+    background: url("../images/blackBlockDecorBg.svg"), var(--black-coffee);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  ._customers_decor {
+    position: absolute;
+    top: 0;
+  }
+
+  white-block._customers_decor {
+    right: 0;
+    width: 70%;
+    height: 40%;
+    background: var(--first-coffee);
+  }
+
+  image-block._customers_decor {
+    left: 0;
+    width: 30%;
+    height: 40%;
+  }
+}

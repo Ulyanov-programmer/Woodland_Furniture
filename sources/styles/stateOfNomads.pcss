@@ -1,0 +1,88 @@
+@import url('./_environment.pcss');
+
+@layer secondLevelState {
+  :hover,
+  :focus-visible {
+    &[data-hover-focus*='blackBlockWhiteText'] {
+      color: var(--coffee-text-color);
+      background: var(--black-coffee);
+    }
+
+    &[data-hover-focus*='blackCoffeeBlockWhiteText'] {
+      color: var(--coffee-text-color);
+      background: var(--third-coffee);
+    }
+
+    &[data-hover-focus*='whiteBlockBlackText'] {
+      color: var(--black-coffee);
+      background: var(--coffee-text-color);
+    }
+
+    &[data-hover-focus*='coffeeBlockBlackText'] {
+      color: var(--black-coffee);
+      background: var(--second-coffee);
+      border: 1px solid var(--second-coffee);
+    }
+
+    &[data-hover-focus*='pathWhite'] {
+      path {
+        fill: var(--first-coffee);
+      }
+    }
+
+    &[data-hover-focus*='pathWhiteStrokeYellowCoffeeFill'] {
+      path {
+        fill: var(--third-coffee);
+        stroke: var(--first-coffee);
+      }
+    }
+  }
+
+  @media (width <= 1024px) {
+    [data-below-1024*='flex'] {
+      display: flex;
+
+      &[data-below-1024*='JCCenter'] {
+        justify-content: center;
+      }
+
+      &[data-below-1024*='gap50'] {
+        gap: 50px;
+      }
+
+      &[data-below-1024*='gap20'] {
+        gap: 20px;
+      }
+
+      &[data-below-1024*='columnNowrap'] {
+        flex-flow: column nowrap;
+      }
+
+      &[data-below-1024*='rowWrap'] {
+        flex-flow: row wrap;
+      }
+    }
+  }
+
+  @media (width <= 1240px) {
+    [data-below-1240*='likeBackground'] {
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+
+      width: 75%;
+
+      opacity: 0.2;
+    }
+
+    [data-below-1240*='grid'] {
+      display: grid;
+
+      &[data-below-1240*='ACCenter'] {
+        align-content: center;
+      }
+    }
+  }
+}

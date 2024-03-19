@@ -1,0 +1,62 @@
+@import url("./_environment.pcss");
+
+@layer thirdLevelState {
+  @media (width <= 425px) {
+    [data-below-425*="t_center"] {
+      text-align: center;
+    }
+
+    [data-below-425*="fz-18"] {
+      font-size: 18px;
+    }
+    [data-below-425*="w_100per"] {
+      width: 100%;
+    }
+  }
+
+  @media (width <= 1024px) {
+    [data-below-1024*="content_paddings"] {
+      padding-inline: var(--content-inline-padding, 10vw);
+    }
+
+    [data-below-1024*="m_inline_auto"] {
+      margin-inline: auto;
+    }
+
+    [data-below-1024*="t_center"] {
+      text-align: center;
+    }
+  }
+
+  @media (width <= 1440px) {
+    [data-below-1440*="h_50svh"] {
+      height: 50svh;
+      min-height: 300px;
+    }
+
+    [data-below-1440*="hidden"] {
+      display: none;
+    }
+  }
+
+  @media (width > 1440px) {
+    [data-on-1440*="hidden"] {
+      display: none;
+    }
+  }
+  @media (width <= 1240px) {
+    [data-below-1240*="pos_r"] {
+      position: relative;
+    }
+    [data-below-1240*="contain_p"] {
+      position: relative;
+    }
+  }
+
+  :hover,
+  :focus-visible {
+    &[data-hover-focus*="t_underline"] {
+      text-decoration: underline;
+    }
+  }
+}
